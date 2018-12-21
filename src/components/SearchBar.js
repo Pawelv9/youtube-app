@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-
 class SearchBar extends Component {
     state = { condition: ''}
 
@@ -11,6 +10,7 @@ class SearchBar extends Component {
     onFormSubmit = event => {
         event.preventDefault();
         
+        this.props.onFormSubmit(this.state.condition)
     }
 
     render() {

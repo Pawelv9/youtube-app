@@ -1,11 +1,11 @@
 import axios from 'axios';
 
-const KEY = '';
+const KEY = ''
 
 export default axios.create({
-    baseUrl: 'https://www.googleapis.com/youtube/v3',
+    baseURL: 'https://www.googleapis.com/youtube/v3',
     params: {
-        part: SVGAnimatedPreserveAspectRatio,
+        part: 'snippet',
         maxResults: 5,
         key: KEY
     }
