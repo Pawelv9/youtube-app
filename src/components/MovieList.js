@@ -3,11 +3,11 @@ import MovieItem from './MovieItem';
 
 const MovieList = ({ movies }) => {
   const renderedList = movies.map((movie) => {
-      return <MovieItem />;
+      return <MovieItem movie={movie}/>;
   })
   
     return (
-        <div>
+        <div className="ui divided relaxed list">
           {renderedList}
         </div>
   )

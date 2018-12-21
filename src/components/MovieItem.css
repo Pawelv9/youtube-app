@@ -1,0 +1,9 @@
+.movie-item {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.movie-item.item img {
+    max-width: 150px
+}
