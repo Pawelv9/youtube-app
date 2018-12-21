@@ -1,9 +1,9 @@
 import React from 'react'
 import './MovieItem.css'
 
-const MovieItem = ({ movie }) => {
+const MovieItem = ({ movie, onMovieSelect }) => {
   return (
-    <div className="movie-item item">
+    <div onClick={() => onMovieSelect(movie)} className="movie-item item">
         <img className="ui image" src={movie.snippet.thumbnails.medium.url} />
       <div className="content">
         <div className="header">

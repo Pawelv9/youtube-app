@@ -1,9 +1,9 @@
 import React from 'react'
 import MovieItem from './MovieItem';
 
-const MovieList = ({ movies }) => {
+const MovieList = ({ movies, onMovieSelect }) => {
   const renderedList = movies.map((movie) => {
-      return <MovieItem movie={movie}/>;
+      return <MovieItem onMovieSelect={onMovieSelect} movie={movie}/>;
   })
   
     return (
