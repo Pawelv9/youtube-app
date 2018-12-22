@@ -8,6 +8,9 @@ import MovieDetail from './MovieDetail';
 class App extends Component {
     state ={ movies: [], selectedMovie: null }
 
+    componentDidMount() {
+        this.onConditionSubmit('surfing')
+    }
 
     onConditionSubmit = async (condition) => {
         const res = await youtube.get('/search', {
@@ -16,7 +19,10 @@ class App extends Component {
             }
         });
 
-        this.setState({ movies: res.data.items })
+        this.setState({ 
+            movies: res.data.items,
+            selectedMovie: res.data.items[0]
+        })
     };
 
     onMovieSelect = movie => {
@@ -28,8 +34,16 @@ class App extends Component {
             <div className = "ui container">
                <SearchBar onFormSubmit={this.onConditionSubmit}/> 
             We have {this.state.movies.length} videos.
-                <MovieDetail movie={this.state.selectedMovie}/>
-                <MovieList onMovieSelect={this.onMovieSelect} movies={this.state.movies}/>
+                <div className="ui grid">
+                    <div className="ui row">
+                        <div className="eleven wide column">
+                            <MovieDetail movie={this.state.selectedMovie}/>
+                        </div>
+                        <div className="five wide column">
+                            <MovieList onMovieSelect={this.onMovieSelect} movies={this.state.movies}/>
+                        </div>
+                    </div>
+                </div>
             </div>
         );
     }
